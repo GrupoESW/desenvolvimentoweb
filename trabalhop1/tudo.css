@@ -38,3 +38,11 @@ li:hover{
     background-color:#F00;
 }
 
+input {
+    margin-bottom: 10px;
+}
+
+
+.formulariopost {
+    display: inline-grid;
+}
