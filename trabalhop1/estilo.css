@@ -157,3 +157,39 @@ body {
     font-size: 18px;
     color: #ECD6C4;
   }
+
+  label {
+    margin-bottom: 16px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  input, textarea {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    font-family: 'Sarala', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #2F2325;
+  }
+
+  textarea {
+    height: 200px;
+  }
+
+  div.formulariopost {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-top: 48px;
+  }
+
+  .icone {
+    height: 30px;
+    width: 30px;
+    margin-right: 8px;
+  }
