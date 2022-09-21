@@ -74,8 +74,8 @@ body {
 
 .conteudo-principal-escrito-botao {
   background-color: #ECD6C4;
-  width: 200px;
-  height: 100px;
+  width: 180px;
+  height: 60px;
   border: none;
   box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -132,7 +132,7 @@ body {
 .rodape-imagem {
   height: 48px;
   display: block;
-  margin: 0 auto 30px;
+  margin: 0 auto;
 }
 
 .rodape-imagem-mapa {
@@ -148,7 +148,7 @@ body {
     font-weight: 400;
     font-size: 24px;
     color: #FFF2EF;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .conteudo-secundario-paragrafo-rodape {
@@ -192,4 +192,33 @@ body {
     height: 30px;
     width: 30px;
     margin-right: 8px;
+  }
+
+
+  .servicos {
+    border-top: 0.4px solid #FFF2E7;
+  }
+
+  .servicos-tela-inicial {
+    margin: 100px auto 50px;
+    display: block;
+    align-items: center;
+  }
+
+  .servicos-conteudo {
+    display: flex;
+  }
+
+  .servicos-conteudo-funcao {
+    padding: 24px;
+    background-color: #ECD6C4;
+    width: 180px;
+    height: 60px;
+    border: none;
+    box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    font-family: 'Sarala', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: #2F2325;
   }
