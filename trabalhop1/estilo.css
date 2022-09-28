@@ -201,6 +201,11 @@ body {
     margin-right: 8px;
   }
 
+  .iconegrande {
+    height: 60px;
+    width: 60px;
+    margin-right: 30px;
+  }
 
   .servicos {
     border-top: 0.4px solid #FFF2E7;
