@@ -233,3 +233,50 @@ body {
     margin: 40px 15px 40px;
    
   }
+  p.texto {
+    font-family: 'Righteous', cursive;
+    font-weight: 400;
+    font-size: 16px;
+    color: #FFF2E7;
+    margin-bottom: 15px;
+  }
+
+  div.sobrediv {
+    display: flex;
+    margin: 5% auto;
+  }
+
+  div.sobretexto {
+    margin-left: 1%;
+    width: 40%;
+    height: 100%;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+  
+  div.sobregaleria {
+    display: block;
+    width: 60%;
+    height: 100%;
+  }
+
+  div.sobretitulogaleria {
+    width: 60%;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  div.sobregaleriagrupo {
+    width: 60%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;   
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+
+div.sobregaleriagrupo img {
+    margin: 3px 3px;
+    width: 200px;
+  }
+  
