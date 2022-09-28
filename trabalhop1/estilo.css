@@ -285,3 +285,12 @@ div.sobregaleriagrupo img {
     width: 200px;
   }
   
+  label.fotos:hover {
+    transform: scale(1.5);
+    transition: 1s;
+    rotate: 360deg;
+  }
+
+  label {
+    text-align: center;
+  }
