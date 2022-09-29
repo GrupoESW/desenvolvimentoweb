@@ -127,6 +127,15 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
   color: #ECD6C4;
 }
 
+/* Organização dos botões da página iniciais */
+.botao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 24px;
+}
+
 /* Estilo dos elementos do rodapé */
 .rodape {
     padding: 32px;
