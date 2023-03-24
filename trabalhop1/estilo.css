@@ -63,7 +63,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
 .conteudo-principal-escrito {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 40px;
 }
 
 .conteudo-principal-escrito-titulo {
@@ -111,20 +111,19 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
 }
 
 .conteudo-secundario-titulo {
-  border-top: 0.4px solid #FFF2E7;
-  padding-top: 48px;
   font-family: 'Righteous', cursive;
   font-weight: 400;
-  font-size: 24px;
-  color: #FFF2EF;
-  margin-bottom: 16px;
+  font-size: 64px;
+  color: #FFF2E7;
 }
+
 
 .conteudo-secundario-paragrafo {
   font-family: 'Sarala', sans-serif;
-  font-weight: 300;
-  font-size: 18px;
+  font-weight: 400;
+  font-size: 24px;
   color: #ECD6C4;
+  gap: 50px;
 }
 
 /* Organização dos botões da página iniciais */
@@ -177,7 +176,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
 
 /* Estilo para os elementos da página de contato 
 Descrição do campo*/
-  label {
+label {
     margin-bottom: 16px;
     margin: 0 auto;
     display: block;
@@ -302,10 +301,20 @@ div.sobregaleriagrupo img {
 /* Define a animação ao colocar o mouse sobre as fotos */
   label.fotos:hover {
     transform: scale(1.5); /* Define o quanto a foto vai aumentar */
-    transition: 1s; /* Define o tempo que a animação vai levar */
+    transition: 0.5s; /* Define o tempo que a animação vai levar */
     rotate: 360deg; /* Define o quanto a foto vai girar */
   }
 
   label {
     text-align: center;
   }
+
+  .fotos {
+    width: 150px;
+    height: 400px;
+  }
+
+  img.fotos {
+    padding: 20px;
+  }
+
