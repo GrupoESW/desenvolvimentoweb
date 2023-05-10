@@ -1,0 +1,41 @@
+name: notebook-docker
+on:
+  push:
+    branches: [main]
+
+jobs:
+  CI:
+    runs-on:  notebook
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
+      
+      - name: Docker Login
+        uses: docker/login-action@v2.1.0
+        with:
+          # Server address of Docker registry. If not set then will default to Docker Hub
+          # registry: 
+          # Username used to log against the Docker registry
+          username: ${{ secret.DOCKERHUB_USER }}
+          # Password or personal access token used to log against the Docker registry
+          password: ${{ secret.DOCKERHUB_PASS }}
+      
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v4.0.0
+        with:
+           context: .
+           push: true
+           tags:
+            ncmbjr/teste:v1
+            ncmbjr/teste:latest
+        
+      
+      #- name: Docker Login
+        #uses: docker/login-action@v2.1.0
+        #with:
+          # Server address of Docker registry. If not set then will default to Docker Hub
+          #registry: # optional
+          # Username used to log against the Docker registry
+          #username: ${{ secret.ECR_USER }}
+          # Password or personal access token used to log against the Docker registry
+          #password: ${{ secret.ECR_USER }}
