@@ -34,7 +34,7 @@ jobs:
       - name: Docker Compose Action
         uses: isbang/compose-action@v1.4.1
         with:
-          up-flags: --detach
+          up-flags: --detach --no-recreate
     # relative path to compose file(s)
     #compose-file: # optional, default is ./docker-compose.yml
     # additional options to pass to `docker-compose` command
