@@ -32,9 +32,9 @@ jobs:
     runs-on: notebook
     steps:
       - name: Bash Action
-        run: docker-compose up -d . # optional, default is greet
+        run: docker-compose up -d # optional, default is greet
         shell: bash
-        
+
 
 
 
