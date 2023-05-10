@@ -34,9 +34,9 @@ jobs:
       - name: Bash Action
         uses: rethab/bash-action@v1
         with:
-          command: docker-compose up -d # optional, default is greet
+          command: docker-compose up -d . # optional, default is greet
           # If the command is greet, the name to greet
-          who: nao entendi # optional
+          #who: nao entendi # optional
 
 
 
