@@ -4,7 +4,7 @@ on:
     branches: [main]
 
 jobs:
-  CI:
+  Build:
     runs-on:  notebook
     steps:
       - name: Checkout
@@ -28,6 +28,20 @@ jobs:
            tags: |
             ncmbjr/teste:v1
             ncmbjr/teste:latest
+  Deploy:
+    runs-on: notebook
+    steps:
+      - name: Faz o build novamente da imagem
+        uses: docker/build-push-action@v4
+        with:
+          tags: ncmbjr/teste:latest
+          push: false
+      - name: Roda o container com a imagem construída
+        uses: addnab/docker-run-action@v3
+        with:
+          image:  ncmbjr/teste:latest
+          run: echo "hello world"
+      
         
       
       #- name: Docker Login
