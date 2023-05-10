@@ -31,6 +31,9 @@ jobs:
   Run:
     runs-on: notebook
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
+
       - name: Bash Action
         run: docker-compose up -d --build --remove-orphans --force-recreate # optional, default is greet
         shell: bash
