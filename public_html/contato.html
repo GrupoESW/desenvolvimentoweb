@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trabalho da Universidade de Vassouras">
+    <title>CONTATO</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css"></link>
+	<script type='text/javascript' src='verifica.js' id='verificaemail' defer></script>
+	<script language="JavaScript" >
+
+	function enviardados(){
+		var telefone = document.dados.telefone.value;
+		var regex = new RegExp('^\\(((1[1-9])|([2-9][0-9]))\\)((3[0-9]{3}-[0-9]{4})|(9[0-9]{4}-[0-9]{4}))$');
+
+		if(regex.test(telefone))
+		console.log('numero valido');
+		else {
+		alert( "Preencha campo telefone corretamente!" );
+		document.dados.telefone.focus();
+		return false;
+		}
+		
+		var cep = document.dados.cep.value;
+		var regex = new RegExp('^[0-9]{5}-[0-9]{3}$');
+
+		if(regex.test(cep))
+		console.log('cep valido');
+		else {
+		alert( "Preencha campo cep corretamente!" );
+		document.dados.cep.focus();
+		return false;
+		}
+		
+
+		if( document.dados.email.value=="" ||
+		document.dados.email.value.indexOf('@')==-1 ||
+		document.dados.email.value.indexOf('.')==-1 )
+		{
+		alert( "Preencha campo E-MAIL corretamente!" );
+		document.dados.email.focus();
+		return false;
+		}
+
+		if(document.dados.cpf.value=="" ||
+		document.dados.cpf.value.length != 11)
+		{
+		alert( "Preencha campo cpf corretamente!" );
+		document.dados.cpf.focus();
+		return false;
+}
+
+	}
+	</script>
+		
+</head>
+<body>
+<!-- Barra de navegação superior -->
+<header class="cabecalho">
+	<img class="cabecalho-imagem" src= "imagens/logo_horizontal_univasso.svg" alt="Logo da Faculdade">
+	<nav class="cabecalho-menu">
+		<a class="cabecalho-menu-item" href="index.html">HOME</a>
+		<a class="cabecalho-menu-item" href="sobre.html">SOBRE</a>
+		<a class="cabecalho-menu-item" href="servico.html">SERVIÇOS</a>
+		<a class="cabecalho-menu-item" href="contato.html">CONTATO</a>
+		
+</nav>
+<img class="cabecalho-imagem-br" src= "imagens/br.png"  alt="brasil"></a>
+</header>
+<!-- Fim da barra superior -->
+
+<!-- Dados de contato -->
+<main class="conteudo">
+	<section class="conteudo-principal">
+		<div class="conteudo-principal-escrito">
+			<h3 class="conteudo-secundario-titulo">Nossa Localização</h3>
+			<span class=conteudo-secundario-paragrafo>Av. Governador Roberto Silveira, nº 437, Flamengo - Maricá/RJ</span>
+			<h3 class="conteudo-secundario-titulo">Nossos Contatos</h3>
+			<span class=conteudo-secundario-paragrafo>Telefone: (21) 2630-0000</span>
+			<span class=conteudo-secundario-paragrafo><a href="mailto:emaildogrupo@gmail.com"></a>Email: emaildogrupo@gmail.com</span>
+			<h3 class="conteudo-secundario-titulo">Nossas Redes Sociais</h3>	
+			<div>
+				<a href="https://www.facebook.com/UnivassoOficial/" target="_blank">
+					<img class="icone" src="imagens/facebook.png" alt="Facebook">
+				</a>
+				<a href="https://www.instagram.com/univasso/" target="_blank">
+					<img class="icone" src="imagens/instagram.png" alt="Instagram">
+				</a>
+				<a href="https://twitter.com/univasso" target="_blank">
+					<img class="icone" src="imagens/twitter.png" alt="Twitter">
+				</a>
+				<a href="https://www.youtube.com/channel/UCY8Y8Y8Y8Y8Y8Y8Y8Y8Y8Y8" target="_blank">
+					<img class="icone" src="imagens/youtube.png" alt="Youtube">
+				</a>
+			</div>
+		</div>
+<!-- Fim dos dados de contato -->
+
+<!-- Formulário de contato -->
+	<div class="formulariopost">
+		<h2 class="conteudo-principal-escrito-titulo" >Fale conosco:</h2>
+		<form id="dados" class=conteudo-secundario-paragrafo method="post" onsubmit="return enviardados()" action="nenhuma" name="dados">
+			<div>
+				<label>cpf</label>
+				<input name="cpf" placeholder="Nome">
+			</div>
+			<div>
+				<label>E-mail</label>
+				<input name="email" placeholder="E-mail">
+			</div>
+			<div>
+				<label>Assunto</label>
+				<input name="assunto" placeholder="Assunto">
+			</div>
+			<div>
+				<label>Telefone</label>
+				<input name="telefone" placeholder="Telefone">
+			</div>
+			<div>
+				<label>Mensagem</label>
+				<textarea name="cep" rows="4" placeholder="Mensagem"></textarea>
+			</div>
+
+			<div>
+				<label>Tipo</label>
+				<select name="tipolocal">
+					<option value="alameda">Alameda</option>
+					<option value="avenida">Avenida</option>
+					<option value="distrito">Distrito</option>
+					<option value="estrada">Estrada</option>
+					<option value="fazenda">Fazenda</option>
+					<option value="loteamento">Loteamento</option>
+					<option value="morro">Morro</option>
+					<option value="recanto">Recanto</option>
+					<option value="residencial">Residencial</option>
+					<option value="rodovia">Rodovia</option>
+					<option value="rua">Rua</option>
+					<option value="sitio">Sítio</option>
+					<option value="travessa">Travessa</option>
+					<option value="trevo">Trevo</option>
+					<option value="via">Via</option>
+					<option value="viela">Viela</option>
+					<option value="vila">Vila</option>
+				</select>
+				<div><label>Endereço</label><input type="text" name="endereco" placeholder="Endereço"></div>
+				<div><label>Número</label>><input type="text" name="numero" placeholder="Número"></div>
+				<div><label>Complemento</label><input type="text" name="complemento" placeholder="Complemento"></div>
+				<div><label>Bairro</label><input type="text" name="bairro" placeholder="Bairro"></div>
+				<div><label>Cep</label><input type="text" name="cep" placeholder="CEP"></div>
+				<div><label>Estado</label>
+
+			<div>
+				<label>Tipo</label>
+				<select name="tipolocal">
+					<option value="alameda">Alameda</option>
+					<option value="avenida">Avenida</option>
+					<option value="distrito">Distrito</option>
+					<option value="estrada">Estrada</option>
+					<option value="fazenda">Fazenda</option>
+					<option value="loteamento">Loteamento</option>
+					<option value="morro">Morro</option>
+					<option value="recanto">Recanto</option>
+					<option value="residencial">Residencial</option>
+					<option value="rodovia">Rodovia</option>
+					<option value="rua">Rua</option>
+					<option value="sitio">Sítio</option>
+					<option value="travessa">Travessa</option>
+					<option value="trevo">Trevo</option>
+					<option value="via">Via</option>
+					<option value="viela">Viela</option>
+					<option value="vila">Vila</option>
+				</select>
+				<div><label>Endereço</label><input type="text" name="endereco" placeholder="Endereço"></div>
+				<div><label>Número</label>><input type="text" name="numero" placeholder="Número"></div>
+				<div><label>Complemento</label><input type="text" name="complemento" placeholder="Complemento"></div>
+				<div><label>Bairro</label><input type="text" name="bairro" placeholder="Bairro"></div>
+				<div><label>Cep</label><input type="text" name="cep" placeholder="CEP"></div>
+				<div><label>Estado</label><select id="estado" name="estado">
+						<option value="AC">Acre</option>
+						<option value="AL">Alagoas</option>
+						<option value="AP">Amapá</option>
+						<option value="AM">Amazonas</option>
+						<option value="BA">Bahia</option>
+						<option value="CE">Ceará</option>
+						<option value="DF">Distrito Federal</option>
+						<option value="ES">Espírito Santo</option>
+						<option value="GO">Goiás</option>
+						<option value="MA">Maranhão</option>
+						<option value="MT">Mato Grosso</option>
+						<option value="MS">Mato Grosso do Sul</option>
+						<option value="MG">Minas Gerais</option>
+						<option value="PA">Pará</option>
+						<option value="PB">Paraíba</option>
+						<option value="PR">Paraná</option>
+						<option value="PE">Pernambuco</option>
+						<option value="PI">Piauí</option>
+						<option value="RJ">Rio de Janeiro</option>
+						<option value="RN">Rio Grande do Norte</option>
+						<option value="RS">Rio Grande do Sul</option>
+						<option value="RO">Rondônia</option>
+						<option value="RR">Roraima</option>
+						<option value="SC">Santa Catarina</option>
+						<option value="SP">São Paulo</option>
+						<option value="SE">Sergipe</option>
+						<option value="TO">Tocantins</option>
+					</select>
+				</div>
+				<div><label>Cidade</label><input type="text" name="cidade" placeholder="Cidade"></div>
+				<div><label>Telefone</label><input type="text" name="telefone" placeholder="Telefone"></div>
+				<div><label>Outro telefone para contato</label><input type="text" name="telefone2" placeholder="Telefone"></div>
+				<div><label>Defina uma senha de acesso</label><input type="password" name="senha" placeholder="Senha"></div>
+				<div><label>Curso</label><select name="curso">
+					<option value="1">Administração</option>
+					<option value="2">Agronomia</option>
+					<option value="3">Arquitetura e Urbanismo</option>
+					<option value="4">Artes Cênicas</option>
+					<option value="5">Artes Visuais</option>
+					<option value="6">Biblioteconomia</option>
+					<option value="7">Ciências Biológicas</option>
+					<option value="8">Ciências Contábeis</option>
+					<option value="9">Ciências Econômicas</option>
+					
+				</select>
+			<div>
+				<input type="submit" value="Enviar"/>
+			</div>		
+
+		</form>
+</div>
+</section>
+</main>
+<!-- Fim do formulário de contato -->
+<footer class="rodape">
+	<div class="rodape-logo">
+	<img class="rodape-imagem" src= "imagens/logo_horizontal_univasso.svg" alt="Logo da Faculdade">
+	</div>
+	<div class="rodape-conteudo">
+		 <!--Descrição dos contatos-->
+		 <h4 class="conteudo-secundario-titulo-rodape">Contato:</h4>
+		 <p class="conteudo-secundario-paragrafo-rodape">Av. Governador Roberto Silveira, nº 437, Flamengo - Maricá/RJ </p>
+		 <p class="conteudo-secundario-paragrafo-rodape">Telefone: (21) 2630-0000</p>
+		 <p class="conteudo-secundario-paragrafo-rodape">E-mail: emaildogrupo@gmail.com</p>
+	</div>
+	<div class="rodape-rede">
+	   <img class="rodape-imagem-mapa" src= "imagens/mapa.png" alt="Logo da Faculdade">
+	</div>
+	</footer>
+	
+	</body>
+	</html>
