@@ -33,7 +33,8 @@ jobs:
     steps:
       - name: Docker Compose Action
         uses: isbang/compose-action@v1.4.1
-    #    with:
+        with:
+          up-flags: -d
     # relative path to compose file(s)
     #compose-file: # optional, default is ./docker-compose.yml
     # additional options to pass to `docker-compose` command
@@ -43,7 +44,7 @@ jobs:
     # services to perform docker-compose up
     #services: # optional
     # additional options to pass to `docker-compose up` command
-    #up-flags: # optional, default is 
+     
       
       #- name: Docker Login
         #uses: docker/login-action@v2.1.0
