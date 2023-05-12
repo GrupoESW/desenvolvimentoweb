@@ -13,18 +13,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.5.2
 
-      - name: Bash Action
+      - name: Builda e sobe o container
         run: docker-compose up -d --build --remove-orphans #--force-recreate
         shell: bash
         
-      - name: Bash Action
-        run: PORTA=$(docker-compose port app 80)
-        shell: bash
-        
-      - name: Configurar NGINX
+      - name: Configura NGINX
         run: |
             branch=${{ github.ref }}
             branch=${branch/refs\/heads\//}
+            PORTA=$(docker-compose port app 80)
+            
             # Define o caminho do arquivo de configuração do NGINX
             config_file="/etc/nginx/sites-enabled/${branch}.conf"
 
@@ -32,8 +30,8 @@ jobs:
             template=$(cat /etc/nginx/sites-available/template-trabalessandra.conf)
 
             # Substitui as variáveis no modelo de configuração com as informações corretas
-            template=${template//\${branch}/${branch}}
-            template=${template//\${porta}/${{ env.PORTA }}}
+            template=$(echo $template | sed -r "s/BRANCH/$branch/")
+            template=$(echo $template | sed -r "s/PORTA/$PORTA/")${{ env.PORTA }}}
 
             # Cria o novo arquivo de configuração com as informações atualizadas
             echo "$template" | sudo tee > $config_file
