@@ -1,1 +1,1 @@
-Trabalho de desenvolvimento web
+Trabalho de Programação Front-End
