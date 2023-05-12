@@ -18,6 +18,7 @@ jobs:
         shell: bash
     
   Publica:
+    needs: Compose
     runs-on: trabalessandra
     steps:
       - name: Configura NGINX
