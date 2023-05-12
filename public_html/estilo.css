@@ -233,25 +233,31 @@ label {
     margin-top: 20px;
   } 
 
-/*.servicos-conteudo {
-    display: 
+.servicos-conteudo {
+  background-color: #2F2325;
+    display: inline-flex;
+    border-top: 0.4px solid #FFF2E7;
+    width: 100%;
     
-    
-}*/
+}
 
   .servicos-conteudo-titulo {
     background-color: #8E5D52;
-    margin: 10px;
-    border-top: 0.4px solid #FFF2E7;
+    width: 50%;
     height: 400px;
     padding: 20px;
     font-family: 'Sarala', sans-serif;
     color: #FFF2E7;
     font-weight: 400;
     font-size: 18px
+  }
+
+  
+
+  .servicos-conteudo-imagem {
     
-    
-    
+    width: 50%;
+    height: 400px;
   }
 
     
