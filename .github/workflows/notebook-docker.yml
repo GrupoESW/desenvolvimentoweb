@@ -1,7 +1,7 @@
 name: notebook-docker
 on:
   push:
-    branches: [main]
+    branches: '**'
 
 jobs:
   Run:
@@ -21,7 +21,8 @@ jobs:
         run: |
             branch=${{ github.ref }}
             branch=${branch/refs\/heads\//}
-            PORTA=$(docker-compose port app 80)
+            PORTA=$(docker-compose port app 80| cut -d: -f2)
+            
             
             # Define o caminho do arquivo de configuração do NGINX
             config_file="/etc/nginx/sites-enabled/${branch}.conf"
