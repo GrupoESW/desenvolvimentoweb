@@ -36,5 +36,8 @@ jobs:
 
             # Cria o novo arquivo de configuração com as informações atualizadas
             echo "$template" | sudo tee > $config_file
+            
+      - name: Configura NGINX
+        run: nginx -s reload
       
 
