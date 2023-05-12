@@ -17,7 +17,7 @@ jobs:
             sed -i "s/app/${branch}/" docker-compose.yml
             
       - name: Builda e sobe o container
-        run: docker-compose up -d --build --remove-orphans #--force-recreate
+        run: docker-compose up -d --build #--force-recreate
         shell: bash
     
   Publica:
