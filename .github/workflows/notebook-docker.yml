@@ -38,6 +38,6 @@ jobs:
             echo "$template" | sudo tee > $config_file
             
       - name: Configura NGINX
-        run: nginx -s reload
+        run: /usr/sbin/nginx -s reload
       
 
