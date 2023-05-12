@@ -9,7 +9,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3.5.2
-
+      
+      - name: Configura nome do container
+        run: |
+            branch=${{ github.ref }}
+            branch=${branch/refs\/heads\//}
+            sed -i "s/app/${branch}/" docker-compose.yml
+            
       - name: Builda e sobe o container
         run: docker-compose up -d --build --remove-orphans #--force-recreate
         shell: bash
@@ -22,7 +28,7 @@ jobs:
         run: |
             branch=${{ github.ref }}
             branch=${branch/refs\/heads\//}
-            PORTA=$(docker-compose port app 80| cut -d: -f2)
+            PORTA=$(docker-compose port ${branch} 80| cut -d: -f2)
             
             
             # Define o caminho do arquivo de configuração do NGINX
