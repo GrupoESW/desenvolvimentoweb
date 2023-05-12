@@ -29,7 +29,7 @@ jobs:
             ncmbjr/teste:v2
             ncmbjr/teste:latest
   Run:
-    runs-on: notebook
+    runs-on: [notebook, trabalessandra]
     steps:
       - name: Checkout
         uses: actions/checkout@v3.5.2
@@ -37,16 +37,3 @@ jobs:
       - name: Bash Action
         run: docker-compose up -d --build --remove-orphans #--force-recreate # optional, default is greet
         shell: bash
-
-
-
-
-      #- name: Docker Login
-        #uses: docker/login-action@v2.1.0
-        #with:
-          # Server address of Docker registry. If not set then will default to Docker Hub
-          #registry: # optional
-          # Username used to log against the Docker registry
-          #username: ${{ secret.ECR_USER }}
-          # Password or personal access token used to log against the Docker registry
-          #password: ${{ secret.ECR_USER }}
