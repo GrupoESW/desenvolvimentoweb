@@ -32,7 +32,7 @@ jobs:
 
             # Substitui as variáveis no modelo de configuração com as informações corretas
             template=$(echo $template | sed -r "s/BRANCH/$branch/")
-            template=$(echo $template | sed -r "s/PORTA/$PORTA/")${{ env.PORTA }}}
+            template=$(echo $template | sed -r "s/PORTA/$PORTA/")
 
             # Cria o novo arquivo de configuração com as informações atualizadas
             echo "$template" | sudo tee > $config_file
