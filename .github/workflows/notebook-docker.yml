@@ -5,10 +5,7 @@ on:
 
 jobs:
   Compose:
-    strategy:
-      matrix:
-        runs-on: [notebook, trabalessandra]
-    runs-on: ${{ matrix.runs-on }}
+    runs-on: notebook
     steps:
       - name: Checkout
         uses: actions/checkout@v3.5.2
@@ -16,32 +13,4 @@ jobs:
       - name: Builda e sobe o container
         run: docker-compose up -d --build --remove-orphans #--force-recreate
         shell: bash
-    
-  Publica:
-    needs: Compose
-    runs-on: trabalessandra
-    steps:
-      - name: Configura NGINX
-        run: |
-            branch=${{ github.ref }}
-            branch=${branch/refs\/heads\//}
-            PORTA=$(docker-compose port app 80| cut -d: -f2)
-            
-            
-            # Define o caminho do arquivo de configuração do NGINX
-            config_file="/etc/nginx/sites-enabled/${branch}.conf"
-
-            # Lê o modelo de configuração do NGINX para uma variável
-            template=$(cat /etc/nginx/sites-available/template-trabalessandra.conf)
-
-            # Substitui as variáveis no modelo de configuração com as informações corretas
-            template=$(echo $template | sed -r "s/BRANCH/$branch/")
-            template=$(echo $template | sed -r "s/PORTA/$PORTA/")
-
-            # Cria o novo arquivo de configuração com as informações atualizadas
-            echo "$template" | sudo tee > $config_file
-            
-      - name: Recarrega NGINX
-        run: /usr/sbin/nginx -s reload
-      
 
