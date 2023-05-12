@@ -4,7 +4,7 @@ on:
     branches: '**'
 
 jobs:
-  Run:
+  Compose:
     strategy:
       matrix:
         runs-on: [notebook, trabalessandra]
@@ -16,7 +16,10 @@ jobs:
       - name: Builda e sobe o container
         run: docker-compose up -d --build --remove-orphans #--force-recreate
         shell: bash
-        
+    
+  Publica:
+    runs-on: trabalessandra
+    steps:
       - name: Configura NGINX
         run: |
             branch=${{ github.ref }}
@@ -37,7 +40,7 @@ jobs:
             # Cria o novo arquivo de configuração com as informações atualizadas
             echo "$template" | sudo tee > $config_file
             
-      - name: Configura NGINX
+      - name: Recarrega NGINX
         run: /usr/sbin/nginx -s reload
       
 
