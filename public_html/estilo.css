@@ -219,6 +219,8 @@ label {
     margin-right: 30px;
   }
 
+/* Inicio da estilização da página 'Serviços' */
+
   .servicos {
     border-top: 0.4px solid #FFF2E7;
   }
@@ -229,28 +231,40 @@ label {
     align-items: center;
     height: 430px;
     margin-top: 20px;
-}
+  } 
 
-  .servicos-conteudo {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: stretch;
-    flex-grow: 1;
+/*.servicos-conteudo {
+    display: 
+    
+    
+}*/
 
-  }
-
-  .servicos-conteudo-funcao {
-    padding: 24px;
-    background-color: #ECD6C4;
-    border: none;
-    border-radius: 15px;
+  .servicos-conteudo-titulo {
+    background-color: #8E5D52;
+    margin: 10px;
+    border-top: 0.4px solid #FFF2E7;
+    height: 400px;
+    padding: 20px;
     font-family: 'Sarala', sans-serif;
-    font-size: 15px;
-    color: #2F2325;
-    margin: 40px 15px 40px;
-    opacity: 0.7;
+    color: #FFF2E7;
+    font-weight: 400;
+    font-size: 18px
+    
+    
+    
   }
+
+    
+/*padding: 24px;
+  background-color: #ECD6C4;
+  border: none;
+  border-radius: 15px;
+  font-family: 'Sarala', sans-serif;
+  font-size: 15px;
+  color: #2F2325;
+  margin: 40px 15px 40px;
+  opacity: 0.7;
+}*/
 
   p.texto {
     font-family: 'Righteous', cursive;
