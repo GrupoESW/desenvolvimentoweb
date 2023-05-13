@@ -241,7 +241,7 @@ label {
     
 }
 
-  .servicos-conteudo-titulo {
+  .servicos-conteudo-texto {
     background-color: #8E5D52;
     width: 50%;
     height: 400px;
@@ -252,7 +252,14 @@ label {
     font-size: 18px
   }
 
-  
+  .serv-cont-texto-tit {
+    color: blue;
+  }
+
+  .serv-cont-texto-desc{
+    margin: auto;
+    color: aqua;
+  }
 
   .servicos-conteudo-imagem {
     
