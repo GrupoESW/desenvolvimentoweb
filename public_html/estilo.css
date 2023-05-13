@@ -12,7 +12,7 @@ definições possam substituir esta conforme necessário */
 
 body {
   font-size: 100%;
-  background: linear-gradient(68.15deg, #2F2325 16.62%, #8E5D52 85.61%);
+  background: #e0df9a 85.6;
 }
 
 /* Estilo para o cabeçalho */
@@ -41,7 +41,7 @@ body {
 
 .cabecalho-menu-item {
   font-family: 'Sarala', sans-serif;
-  color: #FFF2E7;
+  color: #941919;
   font-weight: 400;
   font-size: 18px
 }
@@ -50,7 +50,6 @@ body {
 os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
 .conteudo {
   margin-bottom: 48px;
-  border-top: 0.4px solid #FFF2E7;
 }
 
 .conteudo-principal {
@@ -58,6 +57,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  border-top: 0.4px solid #941919;
 }
 
 .conteudo-principal-escrito {
@@ -70,18 +70,18 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
   font-family: 'Righteous', cursive;
   font-weight: 400;
   font-size: 64px;
-  color: #FFF2E7;
+  color: #941919;
 }
 
 .conteudo-principal-escrito-subtitulo {
   font-family: 'Sarala', sans-serif;
   font-weight: 400;
   font-size: 24px;
-  color: #ECD6C4;
+  color: #941919;
 }
 
 .conteudo-principal-escrito-botao {
-  background-color: #ECD6C4;
+  background-color: #b32525;
   width: 180px;
   height: 80px;
   border: none;
@@ -90,7 +90,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
   font-family: 'Sarala', sans-serif;
   font-weight: 400;
   font-size: 24px;
-  color: #2F2325;
+  color: #f0c9cf;
 }
 
 .conteudo-principal-escrito-botao:hover {
@@ -114,7 +114,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
   font-family: 'Righteous', cursive;
   font-weight: 400;
   font-size: 64px;
-  color: #FFF2E7;
+  color: #941919;
 }
 
 
@@ -122,7 +122,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
   font-family: 'Sarala', sans-serif;
   font-weight: 400;
   font-size: 24px;
-  color: #ECD6C4;
+  color: #941919;
   gap: 50px;
 }
 
@@ -138,7 +138,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
 /* Estilo dos elementos do rodapé */
 .rodape {
     padding: 32px;
-    border-top: 0.4px solid #FFF2E7;
+    border-top: 0.4px solid #941919;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -163,7 +163,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
     font-family: 'Righteous', cursive;
     font-weight: 400;
     font-size: 24px;
-    color: #FFF2EF;
+    color: #941919;
     margin-bottom: 16px;
   }
 
@@ -171,7 +171,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
     font-family: 'Sarala', sans-serif;
     font-weight: 300;
     font-size: 18px;
-    color: #ECD6C4;
+    color: #941919;
   }
 
 /* Estilo para os elementos da página de contato 
@@ -222,7 +222,7 @@ label {
 /* Inicio da estilização da página 'Serviços' */
 
   .servicos {
-    border-top: 0.4px solid #FFF2E7;
+    border-top: 0.4px solid #941919;
   }
 
   .servicos-tela-inicial {
@@ -231,12 +231,13 @@ label {
     align-items: center;
     height: 430px;
     margin-top: 20px;
+    border-top: 0.4px solid #941919;
   } 
 
 .servicos-conteudo {
   background-color: #2F2325;
     display: inline-flex;
-    border-top: 0.4px solid #FFF2E7;
+    border-top: 0.4px solid #941919;
     width: 100%;
     
 }
@@ -247,7 +248,7 @@ label {
     height: 400px;
     padding: 20px;
     font-family: 'Sarala', sans-serif;
-    color: #FFF2E7;
+    color: #941919;
     font-weight: 400;
     font-size: 18px
   }
@@ -283,7 +284,7 @@ label {
     font-family: 'Righteous', cursive;
     font-weight: 400;
     font-size: 16px;
-    color: #FFF2E7;
+    color: #941919;
     margin-bottom: 15px;
   }
 
