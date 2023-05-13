@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Trabalho da Universidade de Vassouras">
-    <title>TESTE</title>
+    <title>CONTATO</title>
     <link rel="stylesheet" type="text/css" href="estilo.css"></link>
 	<script type='text/javascript' src='verifica.js' id='verificaemail' defer></script>
 	<script language="JavaScript" >
 
 	function enviardados(){
 		var telefone = document.dados.telefone.value;
-		var regex = new RegExp('^\\(((1[1-9])|([2-9][0-9]))\\)((3[0-9]{3}-[0-9]{4})|(9[0-9]{4}-[0-9]{4}))$');
+		var regex = new RegExp('^[0-9]{2}([0-9]{8})|(9[0-9]{8}))$');
 
 		if(regex.test(telefone))
 		console.log('numero valido');
@@ -99,10 +99,10 @@
 <!-- Formulário de contato -->
 	<div class="formulariopost">
 		<h2 class="conteudo-principal-escrito-titulo" >Fale conosco:</h2>
-		<form id="dados" class=conteudo-secundario-paragrafo method="post" onsubmit="return enviardados()" action="nenhuma" name="dados">
+		<form id="dados" class=conteudo-secundario-paragrafo method="post" onsubmit="return enviardados()" action="mailto:cezarbrumjr@gmail.com" name="dados">
 			<div>
 				<label>cpf</label>
-				<input name="cpf" placeholder="Nome">
+				<input name="cpf" placeholder="CPF">
 			</div>
 			<div>
 				<label>E-mail</label>
