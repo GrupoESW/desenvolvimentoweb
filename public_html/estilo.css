@@ -8,7 +8,6 @@ definições possam substituir esta conforme necessário */
   padding: 0;
   box-sizing: border-box;
   text-decoration: none;
-  border-top: 0.4px solid #941919;
 }
 
 body {
@@ -138,6 +137,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
 /* Estilo dos elementos do rodapé */
 .rodape {
     padding: 32px;
+    border-top: 0.4px solid #941919;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -220,6 +220,9 @@ label {
 
 /* Inicio da estilização da página 'Serviços' */
 
+  .servicos {
+    border-top: 0.4px solid #941919;
+  }
 
   .servicos-tela-inicial {
     margin: 100px auto 50px;
@@ -232,6 +235,7 @@ label {
 .servicos-conteudo {
   background-color: #2F2325;
     display: inline-flex;
+    border-top: 0.4px solid #941919;
     width: 100%;
     
 }
