@@ -69,14 +69,14 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
   font-family: 'Righteous', cursive;
   font-weight: 400;
   font-size: 64px;
-  color: #FFF2E7;
+  color: #941919;
 }
 
 .conteudo-principal-escrito-subtitulo {
   font-family: 'Sarala', sans-serif;
   font-weight: 400;
   font-size: 24px;
-  color: #ECD6C4;
+  color: #941919;
 }
 
 .conteudo-principal-escrito-botao {
@@ -113,7 +113,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
   font-family: 'Righteous', cursive;
   font-weight: 400;
   font-size: 64px;
-  color: #FFF2E7;
+  color: #941919;
 }
 
 
@@ -121,7 +121,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
   font-family: 'Sarala', sans-serif;
   font-weight: 400;
   font-size: 24px;
-  color: #ECD6C4;
+  color: #941919;
   gap: 50px;
 }
 
@@ -162,7 +162,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
     font-family: 'Righteous', cursive;
     font-weight: 400;
     font-size: 24px;
-    color: #FFF2EF;
+    color: #941919;
     margin-bottom: 16px;
   }
 
@@ -170,7 +170,7 @@ os elementos nas páginas e formatar os títulos, substítulos e parágrafos */
     font-family: 'Sarala', sans-serif;
     font-weight: 300;
     font-size: 18px;
-    color: #ECD6C4;
+    color: #941919;
   }
 
 /* Estilo para os elementos da página de contato 
@@ -246,7 +246,7 @@ label {
     height: 400px;
     padding: 20px;
     font-family: 'Sarala', sans-serif;
-    color: #FFF2E7;
+    color: #941919;
     font-weight: 400;
     font-size: 18px
   }
@@ -275,7 +275,7 @@ label {
     font-family: 'Righteous', cursive;
     font-weight: 400;
     font-size: 16px;
-    color: #FFF2E7;
+    color: #941919;
     margin-bottom: 15px;
   }
 
