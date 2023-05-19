@@ -30,11 +30,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.5.2
       
-      - name: Configura nome do container
+      - name: Configura nome do container, envia branch e repositório
         run: |
             branch=${{ github.ref }}
             branch=${branch/refs\/heads\//}
-            sed -i "s/app/${branch}/" docker-compose.yml
+            repo=${{ github.repository }}
+            repo=${repo/\//_} # substitui a barra por underline (_) no nome do repositório
+
+            sed -i "s/REPO/${repo}/g" docker-compose.yml
+            sed -i "s/BRANCH/${branch}/g" docker-compose.yml  
             
       - name: Builda e sobe o container
         run: docker-compose up -d --build #--force-recreate
