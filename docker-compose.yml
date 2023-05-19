@@ -2,6 +2,5 @@ version: "3"
 services:
   app:
     build: .
-    stop_grace_period: 10s
     ports:
       - "80"
