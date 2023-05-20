@@ -15,5 +15,6 @@ jobs:
                 headers="Authorization: token $ACCESS_TOKEN"
                 api_url="https://api.github.com/repos/${{ github.repository }}/branches"
                 response=$(curl -sSL -H "$headers" "$api_url")
+                echo "$response"
                 branches=$(echo "$response" | jq -r '.[] | .name')
                 echo "$branches"
