@@ -33,11 +33,8 @@ jobs:
       - name: Configura nome do container, envia branch e repositório
         if: ${{ failure() }}
         run: |
-            branch=${{ github.ref }}
-            branch=${branch/refs\/heads\//}
-            repo=${{ github.repository }}
-            repo=${repo/\//_} # substitui a barra por underline (_) no nome do repositório
-            repo=${repo,,} # converte o nome do repositório para minúsculo
+            branch=$(cat branch.txt)
+            repo=$(cat repo.txt)
 
             sed -i "s/REPO/${repo}/g" docker-compose.yml
             sed -i "s/BRANCH/${branch}/g" docker-compose.yml  
@@ -52,7 +49,7 @@ jobs:
         run: |
             branch=$(cat branch.txt)
             repo=$(cat repo.txt)
-            
+
             PORTA=$(docker-compose port ${repo}_${branch} 80| cut -d: -f2)
             
             # Define o caminho do arquivo de configuração do NGINX
