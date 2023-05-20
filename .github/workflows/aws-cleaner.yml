@@ -1,0 +1,19 @@
+name: Branch Deleted
+on:
+    delete: 
+jobs: 
+    build: 
+        runs-on: trabalessandra 
+        steps: 
+            - name: Checkout 
+              uses: actions/checkout@v2 
+            
+            - name: Obter Branches
+              env: 
+                ACCESS_TOKEN: ${{ secrets.CI_ACCESS_TOKEN }}
+              run: |
+                headers="Authorization: token $ACCESS_TOKEN"
+                api_url="https://api.github.com/repos/${{ github.repository }}/branches"
+                response=$(curl -sSL -H "$headers" "$api_url")
+                branches=$(echo "$response" | jq -r '.[] | .name')
+                echo "$branches"
