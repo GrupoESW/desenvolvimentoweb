@@ -29,8 +29,8 @@ jobs:
           repo=${{ github.repository }}
           repo=${repo/.*\//}
           repo=${repo,,} # converte o nome do repositório para minúsculo
-          echo $branch >> branch.txt
-          echo $repo >> repo.txt
+          echo $branch | tee branch.txt
+          echo $repo | tee repo.txt
 
           # Verifica se o contêiner existe
           if docker inspect "${repo}_${branch}_1" >/dev/null 2>&1; then
