@@ -10,13 +10,24 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.5.2
 
+
+- name: Check if container exists 
+run: | if [ $(docker ps -q -f name=my_container) ]; then echo 'true' else echo 'false' 
+
+- name: Run job2 if container exists if: ${{ steps.check_container.outputs.status == 'true' }} 
+run: | echo 'Container exists, running job2' 
+
+job3: runs-on: ubuntu-latest needs: job1 if: ${{ steps.check_container.outputs.status == 'false' }} steps: - name: Run job3 run: | echo 'Container does not exist, running job3'
+
+
+
       - name: Verifica contêiner
         id: check_container
         run: |
           branch=${{ github.ref }}
           branch=${branch/refs\/heads\//}
           repo=${{ github.repository }}
-          repo=${repo/\//_} # substitui a barra por underline (_) no nome do repositório
+          repo=${repo/.*\//}
           repo=${repo,,} # converte o nome do repositório para minúsculo
           echo $branch >> branch.txt
           echo $repo >> repo.txt
