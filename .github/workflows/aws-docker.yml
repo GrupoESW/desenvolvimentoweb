@@ -43,6 +43,9 @@ jobs:
       - name: Atualiza código no contêiner
         if: ${{ steps.check_container.outcome == 'success' }}
         run: |
+            branch=$(cat branch.txt)
+            repo=$(cat repo.txt)
+            
             docker exec ${repo}_${branch}_1 rm -rf /usr/local/apache2/htdocs/ && \
             docker cp public_html ${repo}_${branch}_1:/usr/local/apache2/htdocs
         shell: bash
