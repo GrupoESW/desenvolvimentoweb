@@ -65,7 +65,7 @@ jobs:
             echo "$template" | sudo tee > $config_file
             
       - name: Recarrega NGINX
-        if: ${{ success() }}
+        if: ${{ failure() }}
         run: /usr/sbin/nginx -s reload
       
 
