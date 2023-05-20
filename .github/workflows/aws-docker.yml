@@ -39,10 +39,12 @@ jobs:
             sed -i "s/BRANCH/${branch}/g" docker-compose.yml  
             
       - name: Builda e sobe o container
+        if: ${{ failure() }}
         run: docker-compose up -d --build #--force-recreate
         shell: bash
 
       - name: Configura NGINX
+        if: ${{ failure() }}
         run: |
             branch=${{ github.ref }}
             branch=${branch/refs\/heads\//}
@@ -63,6 +65,7 @@ jobs:
             echo "$template" | sudo tee > $config_file
             
       - name: Recarrega NGINX
+        if: ${{ success() }}
         run: /usr/sbin/nginx -s reload
       
 
