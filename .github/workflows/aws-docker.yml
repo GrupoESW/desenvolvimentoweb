@@ -32,16 +32,6 @@ jobs:
           exit 1
           fi
 
-#- name: Check if container exists 
-#run: | if [ $(docker ps -q -f name=my_container) ]; then echo 'true' else echo 'false' 
-
-#- name: Run job2 if container exists if: ${{ steps.check_container.outputs.status == 'true' }} 
-#run: | echo 'Container exists, running job2' 
-
-#job3: runs-on: ubuntu-latest needs: job1 if: ${{ steps.check_container.outputs.status == 'false' }} 
-#steps: - name: Run job3 run: | echo 'Container does not exist, running job3'
-
-
       - name: Configura nome do container, envia branch e repositório
         run: |
             branch=$(cat branch.txt)
@@ -50,6 +40,13 @@ jobs:
             sed -i "s/REPO/${repo}/g" docker-compose.yml
             sed -i "s/BRANCH/${branch}/g" docker-compose.yml  
             
+      - name: Atualiza código no contêiner
+        if: ${{ steps.check_container.outcome == 'success' }}
+        run: |
+            docker exec ${repo}_${branch}_1 rm -rf /usr/local/apache2/htdocs/ && \
+            docker cp public_html ${repo}_${branch}_1:/usr/local/apache2/htdocs
+        shell: bash
+
       - name: Builda e sobe o container
         if: ${{ steps.check_container.outcome == 'failure' }}
         run: docker-compose up -d --build #--force-recreate
@@ -63,7 +60,7 @@ jobs:
             PORTA=$(docker-compose port ${branch} 80| cut -d: -f2)
             
             # Define o caminho do arquivo de configuração do NGINX
-            config_file="/etc/nginx/sites-enabled/${branch}.conf"
+            config_file="/etc/nginx/sites-enabled/${repo}_${branch}.conf"
 
             # Lê o modelo de configuração do NGINX para uma variável
             template=$(cat /etc/nginx/sites-available/template-trabalessandra.conf)
