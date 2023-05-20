@@ -1,6 +1,6 @@
 version: "3"
 services:
-  BRANCH:
+  REPO_BRANCH:
     build: .
     ports:
       - "80"
