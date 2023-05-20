@@ -59,21 +59,20 @@ jobs:
         run: |
             branch=$(cat branch.txt)
             repo=$(cat repo.txt)
-
-            PORTA=$(docker-compose port ${branch} 80| cut -d: -f2)
+            porta=$(docker-compose port ${branch} 80| cut -d: -f2)
             
             # Define o caminho do arquivo de configuração do NGINX
-            config_file="/etc/nginx/sites-enabled/${repo}_${branch}.conf"
+            config_file="/etc/nginx/sites-enabled/${branch}.${repo}.projetonow.net.conf"
 
-            # Lê o modelo de configuração do NGINX para uma variável
-            template=$(cat /etc/nginx/sites-available/template-trabalessandra.conf)
+            # Guarda o nome do modelo de configuração do NGINX para uma variável
+            template=template-pr-nginx.conf
 
             # Substitui as variáveis no modelo de configuração com as informações corretas
-            template=$(echo $template | sed -r "s/BRANCH/$branch/")
-            template=$(echo $template | sed -r "s/PORTA/$PORTA/")
+            sed -ri "s/BRANCH/$branch/" $template
+            sed -ri "s/PORTA/$porta/" $template
 
             # Cria o novo arquivo de configuração com as informações atualizadas
-            echo "$template" | sudo tee > $config_file
+            cp -f $template $config_file
             
       - name: Recarrega NGINX
         run: /usr/sbin/nginx -s reload
