@@ -24,7 +24,6 @@ jobs:
       - name: Verifica contêiner
         id: check_container
         continue-on-error: true
-        allow-failure: true
         run: |
           branch=${{ github.ref }}
           branch=${branch/refs\/heads\//}
@@ -82,6 +81,6 @@ jobs:
       - name: Recarrega NGINX
         if: ${{ failure() }}
         run: /usr/sbin/nginx -s reload
-      
+
 
 
