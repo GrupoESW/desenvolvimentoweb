@@ -50,7 +50,7 @@ jobs:
         run: |
             branch=${{ github.ref }}
             branch=${branch/refs\/heads\//}
-            PORTA=$(docker-compose port ${branch} 80| cut -d: -f2)
+            PORTA=$(docker-compose port ${repo}_${branch} 80| cut -d: -f2)
             
             
             # Define o caminho do arquivo de configuração do NGINX
