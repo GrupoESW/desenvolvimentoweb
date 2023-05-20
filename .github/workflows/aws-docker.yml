@@ -27,8 +27,9 @@ jobs:
           branch=${{ github.ref }}
           branch=${branch/refs\/heads\//}
           repo=${{ github.repository }}
-          repo=${repo/.*\//}
+          repo=${repo/*\//}
           repo=${repo,,} # converte o nome do repositório para minúsculo
+          
           echo $branch | tee branch.txt
           echo $repo | tee repo.txt
 
