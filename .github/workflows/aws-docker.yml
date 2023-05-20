@@ -43,7 +43,6 @@ jobs:
 
 
       - name: Configura nome do container, envia branch e repositório
-        if: ${{ steps.check_container.outcome == 'failure' }}
         run: |
             branch=$(cat branch.txt)
             repo=$(cat repo.txt)
@@ -57,7 +56,6 @@ jobs:
         shell: bash
 
       - name: Configura NGINX
-        if: ${{ steps.check_container.outcome == 'failure' }}
         run: |
             branch=$(cat branch.txt)
             repo=$(cat repo.txt)
@@ -78,7 +76,6 @@ jobs:
             echo "$template" | sudo tee > $config_file
             
       - name: Recarrega NGINX
-        if: ${{ steps.check_container.outcome == 'failure' }}
         run: /usr/sbin/nginx -s reload
 
 
