@@ -23,6 +23,8 @@ jobs:
 
       - name: Verifica contêiner
         id: check_container
+        continue-on-error: true
+        allow-failure: true
         run: |
           branch=${{ github.ref }}
           branch=${branch/refs\/heads\//}
