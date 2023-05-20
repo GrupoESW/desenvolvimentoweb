@@ -43,6 +43,6 @@ jobs:
                 container_name=${container_name:1}
                 if [[ "$branches" == *"${container_name}"* ]]
                 then echo "Branch existe"
-                else docker rm -f $branch
+                else docker rm -f $container_name
                 fi
                 done
