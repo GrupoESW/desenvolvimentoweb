@@ -17,6 +17,7 @@ jobs:
           branch=${branch/refs\/heads\//}
           repo=${{ github.repository }}
           repo=${repo/\//_} # substitui a barra por underline (_) no nome do repositório
+          repo=${repo,,} # converte o nome do repositório para minúsculo
 
           # Verifica se o contêiner existe
           if docker inspect "${repo}_${branch}_1" >/dev/null 2>&1; then
@@ -34,6 +35,7 @@ jobs:
             branch=${branch/refs\/heads\//}
             repo=${{ github.repository }}
             repo=${repo/\//_} # substitui a barra por underline (_) no nome do repositório
+            repo=${repo,,} # converte o nome do repositório para minúsculo
 
             sed -i "s/REPO/${repo}/g" docker-compose.yml
             sed -i "s/BRANCH/${branch}/g" docker-compose.yml  
