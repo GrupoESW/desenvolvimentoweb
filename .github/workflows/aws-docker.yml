@@ -20,9 +20,11 @@ jobs:
 
           # Verifica se o contêiner existe
           if docker inspect "${repo}_${branch}_1" >/dev/null 2>&1; then
-          echo "true" | tee containerexistente.status
+          echo "Container existente"
+          exit 0
           else
-          echo "false" | tee containerexistente.status
+          echo "Container não existente"
+          exit 1
           fi
          
       - name: Configura nome do container, envia branch e repositório
