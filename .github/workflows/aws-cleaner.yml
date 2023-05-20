@@ -21,17 +21,17 @@ jobs:
                 repo=${repo,,} # converte o nome do repositório para minúsculo
                 
                 branches=$(echo "$response" | jq -r '.[] | .name')
-                branchesfull=$(for b in $branches; do echo "${repo}_${b}_1 "; done | tr -d '\n')
-                
+                containernames=$(for b in $branches; do echo "${repo}_${b}_1 "; done | tr -d '\n')
+
                 echo "$branches" | tee branches.txt
-                echo "$branchesfull" | tee branchesfull.txt
+                echo "$containernames" | tee containernames.txt
                 echo $branch | tee branch.txt
                 echo $repo | tee repo.txt
             
-            - name: Remove containers de branches deletadas
+            - name: Remove containers e vhosts de branches deletadas
               run: |
                 branches=$(cat branches.txt)
-                branchesfull=$(cat branchesfull.txt)
+                containernames=$(cat containernames.txt)
                 repo=$(cat repo.txt)
 
                 # Obter a lista de IDs de todos os containers
@@ -43,8 +43,9 @@ jobs:
                 container_name=$(docker inspect -f '{{.Name}}' $id)
                 # Remover a barra inicial (/) do nome do container
                 container_name=${container_name:1}
-                if [[ "$branchesfull" == *"${container_name}"* ]]
+                nginx_vhost="/etc/nginx/sites-enable/$(echo $container_name |sed -r "s/(.*)_(.*)_(.*)/\2.\1/")"
+                if [[ "$containernames" == *"${container_name}"* ]]
                 then echo "Branch existe"
-                else docker rm -f $container_name
+                else docker rm -f $container_name; docker rm -f $nginx_vhost
                 fi
                 done
