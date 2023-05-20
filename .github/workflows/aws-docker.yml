@@ -18,6 +18,8 @@ jobs:
           repo=${{ github.repository }}
           repo=${repo/\//_} # substitui a barra por underline (_) no nome do repositório
           repo=${repo,,} # converte o nome do repositório para minúsculo
+          echo $branch >> branch.txt
+          echo $repo >> repo.txt
 
           # Verifica se o contêiner existe
           if docker inspect "${repo}_${branch}_1" >/dev/null 2>&1; then
@@ -48,10 +50,10 @@ jobs:
       - name: Configura NGINX
         if: ${{ failure() }}
         run: |
-            branch=${{ github.ref }}
-            branch=${branch/refs\/heads\//}
-            PORTA=$(docker-compose port ${repo}_${branch} 80| cut -d: -f2)
+            branch=$(cat branch.txt)
+            repo=$(cat repo.txt)
             
+            PORTA=$(docker-compose port ${repo}_${branch} 80| cut -d: -f2)
             
             # Define o caminho do arquivo de configuração do NGINX
             config_file="/etc/nginx/sites-enabled/${branch}.conf"
