@@ -1,6 +1,6 @@
 version: "3"
 services:
-  REPO_BRANCH:
+  BRANCH:
     image: httpd:2.4
     volumes:
       - cicd_REPO_BRANCH:/usr/local/apache2/htdocs/

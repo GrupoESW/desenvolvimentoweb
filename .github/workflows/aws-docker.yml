@@ -4,31 +4,29 @@ on:
     branches: '**'
 
 jobs:
-  VerificaContainer:
+  PublicaNaAWS:
     runs-on: trabalessandra
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3.5.2
+
       - name: Verifica contêiner
         id: check_container
         run: |
           branch=${{ github.ref }}
           branch=${branch/refs\/heads\//}
-          
+          repo=${{ github.repository }}
+          repo=${repo/\//_} # substitui a barra por underline (_) no nome do repositório
+
           # Verifica se o contêiner existe
-          if docker inspect "$branch" >/dev/null 2>&1; then
-          exit 0
+          if docker inspect "${repo}_${branch}_1" >/dev/null 2>&1; then
+          echo "true" | tee containerexistente.status
           else
-          exit 1
+          echo "false" | tee containerexistente.status
           fi
-        
-  BuildCompose:
-    runs-on: trabalessandra
-    needs: VerificaContainer
-    if: needs.VerificaContainer.result == 'failure'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3.5.2
-      
+         
       - name: Configura nome do container, envia branch e repositório
+        if: ${{ failure() }}
         run: |
             branch=${{ github.ref }}
             branch=${branch/refs\/heads\//}
@@ -41,12 +39,7 @@ jobs:
       - name: Builda e sobe o container
         run: docker-compose up -d --build #--force-recreate
         shell: bash
-    
-  PublicaDominio:
-    needs: BuildCompose
-    if: needs.BuildCompose.result == 'success'
-    runs-on: trabalessandra
-    steps:
+
       - name: Configura NGINX
         run: |
             branch=${{ github.ref }}
