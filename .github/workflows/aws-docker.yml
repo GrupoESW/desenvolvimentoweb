@@ -69,6 +69,7 @@ jobs:
 
             # Substitui as variáveis no modelo de configuração com as informações corretas
             sed -ri "s/BRANCH/$branch/" $template
+            sed -ri "s/REPO/$repo/" $template
             sed -ri "s/PORTA/$porta/" $template
 
             # Cria o novo arquivo de configuração com as informações atualizadas
