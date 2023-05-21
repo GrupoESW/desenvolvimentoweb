@@ -1,4 +1,4 @@
-name: Branch Deleted
+name: Branch Deletada
 on:
     delete: 
 jobs: 
