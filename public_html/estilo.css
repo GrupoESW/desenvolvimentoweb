@@ -271,7 +271,7 @@ label {
     height: 430px;
   } 
 
-.servicos-conteudo {
+/*.servicos-conteudo {
     background-color: #9C3F3A;
     display: inline-flex;
     border-top: 0.4px solid #fffefe;
@@ -279,7 +279,52 @@ label {
     border: 1px solid rgba(0, 0, 0, 0.356);
     margin-top: 10px;
     margin-bottom: 10px;
+}*/
+
+.servicos-conteudo {
+ position: relative;
 }
+
+.servicos-conteudo .slide-servicos-conteudo-texto .slide {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px 9%;
+  padding-bottom: 70px;
+}
+
+.servicos-conteudo .slide-servicos-conteudo-texto .contentservicos {
+  flex: 1 1 350px;
+}
+
+.servicos-conteudo .slide-servicos-conteudo-texto .contentservicos h3 {
+  font-family: 'Sarala', sans-serif;
+  font-size: 35px;
+  color: #F23132
+
+}
+
+.servicos-conteudo .slide-servicos-conteudo-texto .contentservicos p {
+  font-family: 'Sarala', sans-serif;
+  font-size: 16px;
+  color: #FFD312;
+  width: 40%;
+  height: 10%;
+
+}
+
+.servicos-conteudo .slide-servicos-conteudo-texto .contentservicos .btnserv {
+  margin-top: 10px;
+  display: inline-block;
+  background: #FF7223;
+  color:aliceblue;
+  font-size: 17px;
+  padding: 9px 40px;
+}
+
+
 
 #borda-inferior {
   margin-bottom: 20px;
@@ -309,18 +354,6 @@ label {
     width: 50%;
     height: 400px;
   }
-
-    
-/*padding: 24px;
-  background-color: #ECD6C4;
-  border: none;
-  border-radius: 15px;
-  font-family: 'Sarala', sans-serif;
-  font-size: 15px;
-  color: #2F2325;
-  margin: 40px 15px 40px;
-  opacity: 0.7;
-}*/
 
   p.texto {
     font-family: 'Righteous', cursive;
