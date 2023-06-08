@@ -275,6 +275,14 @@ label {
 
 .servicos-conteudo .slide-servicos-conteudo-texto .slide .contentservicos {
   flex: 1 1 350px;
+  animation: slideServicos .4s linear .4s backwards;
+}
+
+@keyframes slideServicos {0%
+  {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
 }
 
 .servicos-conteudo .slide-servicos-conteudo-texto .slide .contentservicos h3 {
@@ -391,11 +399,6 @@ background: #FF7223;
 .servicos-conteudo #next {
   right: 20px;
 }
-
-
-
-
-
 
 
 
