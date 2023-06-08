@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque Inteligente - Demonstração</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css">
+</head>
+
+<body>
+    <!-- Barra de navegação superior -->
+    <header class="cabecalho">
+        <img class="cabecalho-imagem" src="imagens/logo_horizontal_univasso.svg" alt="Logo da Faculdade">
+        <nav class="cabecalho-menu">
+            <a class="cabecalho-menu-item" href="index.html">HOME</a>
+            <a class="cabecalho-menu-item" href="sobre.html">SOBRE</a>
+            <a class="cabecalho-menu-item" href="servico.html">SERVIÇOS</a>
+            <a class="cabecalho-menu-item" href="contato.html">CONTATO</a>
+            <a class="cabecalho-menu-item" href="demo.html">DEMONSTRAÇÃO</a>
+        </nav>
+        <img class="cabecalho-imagem-br" src="imagens/br.png" alt="brasil">
+    </header>
+    <!-- Fim da barra superior -->
+
+    <!-- Conteúdo da página -->
+    <main class="conteudo">
+        <section class="conteudo-principal">
+            <div class="conteudo-principal-escrito">
+                <h3 class="conteudo-secundario-titulo">Demonstração do Estoque Inteligente</h3>
+                <p class="conteudo-secundario-paragrafo">Selecione uma opção abaixo:</p>
+                <div class="botoes-demo">
+                    <button class="botao-demo" onclick="exibirReceitas()">RECEITAS</button>
+                    <button class="botao-demo" onclick="exibirIngredientes()">INGREDIENTES</button>
+                    <button class="botao-demo" onclick="exibirSugestaoRapida()">SUGESTÃO RÁPIDA</button>
+                </div>
+                <div id="conteudo-demo" class="conteudo-demo">
+                    <!-- Aqui será exibido o conteúdo da demonstração -->
+                </div>
+                <p class="conteudo-secundario-paragrafo">OBS: A demonstração é apenas uma simulação, preenchemos as receitas e ingredientes para você e não é possível realizar alterações.</p>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <div class="rodape-logo">
+            <img class="rodape-imagem" src="imagens/logo_horizontal_univasso.svg" alt="Logo da Faculdade">
+        </div>
+        <div class="rodape-conteudo">
+            <h4 class="conteudo-secundario-titulo-rodape">Contato:</h4>
+            <p class="conteudo-secundario-paragrafo-rodape">Av. Governador Roberto Silveira, nº 437, Flamengo - Maricá/RJ </p>
+            <p class="conteudo-secundario-paragrafo-rodape">Telefone: (21) 2630-0000</p>
+            <p class="conteudo-secundario-paragrafo-rodape">E-mail: emaildogrupo@gmail.com</p>
+        </div>
+        <div class="rodape-rede">
+            <!-- Redes sociais -->
+        </div>
+    </footer>
+
+    <!-- Importando o arquivo demo.js -->
+    <script src="demo.js"></script>
+</body>
+
+</html>
