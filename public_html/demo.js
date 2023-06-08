@@ -71,7 +71,7 @@ function exibirSugestaoRapida() {
         <li>Misture todas as frutas em uma tigela.</li>
         <li>Leve à geladeira por alguns minutos para servir bem fresquinha.</li>
       </ol>
-    <br><h4>Você tamém tem ingredientes para fazer:</h4>
+    <br><h4>Você também tem ingredientes para fazer:</h4>
     <ul>Bolo de chocolate</ul>
     <ul>Pão de queijo</ul>`;
   }
