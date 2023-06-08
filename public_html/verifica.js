@@ -42,11 +42,30 @@ return false;
 
 if (document.dados.tx_mensagem.value.length < 50 )
 {
-alert( "É necessario preencher o campo MENSAGEM com
-mais de 50 caracteres!" );
+alert( "É necessario preencher o campo MENSAGEM com mais de 50 caracteres!" );
 document.dados.tx_mensagem.focus();
 return false;
 }
 
 return true;
 }
+
+
+//Serviços ↓ //
+
+let slides = document.querySelectorAll('.slide-servicos-conteudo-texto');
+let index = 0
+
+function next(){
+  slides[index].classList.remove('active');
+  index = (index + 1) % slides.length;
+  slides[index].classList.add('active');
+}
+
+function prev(){
+  slides[index].classList.remove('active');
+  index = (index - 1 + slides.length) % slides.length;
+  slides[index].classList.add('active');
+}
+
+setInterval(next, 7000);
