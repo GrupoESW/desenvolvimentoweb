@@ -450,7 +450,7 @@ div.sobregaleriagrupo img {
   }
 
 /* Define a animação ao colocar o mouse sobre as fotos */
-  label.fotos:hover {
+  .fotos:hover {
     transform: scale(1.5); /* Define o quanto a foto vai aumentar */
     transition: 0.5s; /* Define o tempo que a animação vai levar */
     rotate: 360deg; /* Define o quanto a foto vai girar */
@@ -460,12 +460,15 @@ div.sobregaleriagrupo img {
     text-align: center;
   }
 
-  .fotos {
-    width: 150px;
-    height: 400px;
+  .sobregaleriagrupo {
+    display: block;
+    padding: 5px;
   }
 
-  img.fotos {
-    padding: 20px;
+  .fotos {
+    width: 150px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #FFD312;
   }
 
