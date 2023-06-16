@@ -1,6 +1,6 @@
 function exibirReceitas() {
     var conteudoDemo = document.getElementById("conteudo-demo");
-    conteudoDemo.innerHTML = " <style>li { font-size: 15px;}</style>"; // Limpa o conteúdo anterior
+    conteudoDemo.innerHTML = "    <style>li,ul { font-size: 26px;}</style>"; // Limpa o conteúdo anterior
 
     // Cria a lista de receitas
     var listaReceitas = document.createElement("ul");
@@ -18,7 +18,7 @@ function exibirReceitas() {
 }
 function exibirIngredientes() {
     var conteudoDemo = document.getElementById("conteudo-demo");
-    conteudoDemo.innerHTML = " <style>li { font-size: 15px;}</style>"; // Limpa o conteúdo anterior
+    conteudoDemo.innerHTML = "    <style>li,ul { font-size: 26px;}</style>"; // Limpa o conteúdo anterior
 
     // Cria a lista de ingredientes
     var listaIngredientes = document.createElement("ul");
