@@ -1,6 +1,6 @@
 function exibirReceitas() {
     var conteudoDemo = document.getElementById("conteudo-demo");
-    conteudoDemo.innerHTML = ""; // Limpa o conteúdo anterior
+    conteudoDemo.innerHTML = "    <style>li,ul { font-size: 26px;}</style>"; // Limpa o conteúdo anterior
 
     // Cria a lista de receitas
     var listaReceitas = document.createElement("ul");
@@ -18,7 +18,7 @@ function exibirReceitas() {
 }
 function exibirIngredientes() {
     var conteudoDemo = document.getElementById("conteudo-demo");
-    conteudoDemo.innerHTML = ""; // Limpa o conteúdo anterior
+    conteudoDemo.innerHTML = "    <style>li,ul { font-size: 26px;}</style>"; // Limpa o conteúdo anterior
 
     // Cria a lista de ingredientes
     var listaIngredientes = document.createElement("ul");
@@ -52,7 +52,9 @@ function exibirIngredientes() {
 
 function exibirSugestaoRapida() {
     var conteudoDemo = document.getElementById("conteudo-demo");
-    conteudoDemo.innerHTML = `<h1>Essa é a receita mais indicada baseado no vencimento dos seus ingredientes:</h1>
+    conteudoDemo.innerHTML = `
+    <style>li,ul { font-size: 26px;}</style>
+    <h1>Essa é a receita mais indicada baseado no vencimento dos seus ingredientes:</h1>
       <h2>Salada de Frutas</h2>
       <h3>Ingredientes:</h3>
       <ul>
