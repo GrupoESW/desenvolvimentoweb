@@ -52,7 +52,9 @@ function exibirIngredientes() {
 
 function exibirSugestaoRapida() {
     var conteudoDemo = document.getElementById("conteudo-demo");
-    conteudoDemo.innerHTML = `<h1>Essa é a receita mais indicada baseado no vencimento dos seus ingredientes:</h1>
+    conteudoDemo.innerHTML = `
+    <style>li { font-size: 15px;}</style>
+    <h1>Essa é a receita mais indicada baseado no vencimento dos seus ingredientes:</h1>
       <h2>Salada de Frutas</h2>
       <h3>Ingredientes:</h3>
       <ul>
