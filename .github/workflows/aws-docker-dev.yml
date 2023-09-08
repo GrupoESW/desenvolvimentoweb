@@ -10,8 +10,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3.5.2
 
-      - name: Verifica contêiner
-        id: check_container
+      - name: Cria Variáveis
+        id: create_variables
         continue-on-error: true
         run: |
           branch=${{ github.ref }}
@@ -22,61 +22,21 @@ jobs:
 
           echo $branch | tee branch.txt
           echo $repo | tee repo.txt
+      
+      - name: Atualiza imagem do app
+        id: change_image
+        run: |
+          branch=$(cat branch.txt)
+          repo=$(cat repo.txt)
 
-          # Verifica se o contêiner existe
-          if docker inspect "${repo}_${branch}_1" >/dev/null 2>&1; then
-          echo "Container existe"
-          exit 0
+          docker build -t ${repo}:${branch} .
+      
+          if docker inspect "${repo}_${branch}_a" >/dev/null 2>&1; then
+            docker run -d --name ${repo}_${branch}_b ${repo}:${branch} -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" && \
+            docker rm -f ${repo}_${branch}_a
+            exit 0
           else
-          echo "Container não existe"
-          exit 1
+            docker run -d --name ${repo}_${branch}_a ${repo}:${branch} -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" && \
+            docker rm -f ${repo}_${branch}_b || true
+            exit 0
           fi
-
-      - name: Configura nome do container, envia branch e repositório
-        run: |
-            branch=$(cat branch.txt)
-            repo=$(cat repo.txt)
-
-            sed -i "s/REPO/${repo}/g" docker-compose.yml
-            sed -i "s/BRANCH/${branch}/g" docker-compose.yml  
-            
-      - name: Atualiza código no contêiner
-        if: ${{ steps.check_container.outcome == 'success' }}
-        run: |
-            branch=$(cat branch.txt)
-            repo=$(cat repo.txt)
-            
-            docker exec ${repo}_${branch}_1 rm -rf /usr/local/apache2/htdocs/ && \
-            docker cp public_html ${repo}_${branch}_1:/usr/local/apache2/htdocs
-        shell: bash
-
-      - name: Builda e sobe o container
-        if: ${{ steps.check_container.outcome == 'failure' }}
-        run: docker-compose up -d --build #--force-recreate
-        shell: bash
-
-      - name: Configura NGINX
-        run: |
-            branch=$(cat branch.txt)
-            repo=$(cat repo.txt)
-            porta=$(docker-compose port ${branch} 80| cut -d: -f2)
-            
-            # Define o caminho do arquivo de configuração do NGINX
-            config_file="/etc/nginx/sites-enabled/${branch}.${repo}.projetonow.net.conf"
-
-            # Guarda o nome do modelo de configuração do NGINX para uma variável
-            template=template-pr-nginx.conf
-
-            # Substitui as variáveis no modelo de configuração com as informações corretas
-            sed -ri "s/BRANCH/$branch/" $template
-            sed -ri "s/REPO/$repo/" $template
-            sed -ri "s/PORTA/$porta/" $template
-
-            # Cria o novo arquivo de configuração com as informações atualizadas
-            cp -f $template $config_file
-            
-      - name: Recarrega NGINX
-        run: /usr/sbin/nginx -s reload
-
-
-
