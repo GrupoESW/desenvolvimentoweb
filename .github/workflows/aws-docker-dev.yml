@@ -32,11 +32,9 @@ jobs:
           docker build -t ${repo}:${branch} .
       
           if docker inspect "${repo}_${branch}_a" >/dev/null 2>&1; then
-            docker run -d --name ${repo}_${branch}_b ${repo}:${branch} -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" && \
+            docker run -d --name ${repo}_${branch}_b -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" ${repo}:${branch} && \
             docker rm -f ${repo}_${branch}_a
-            exit 0
           else
-            docker run -d --name ${repo}_${branch}_a ${repo}:${branch} -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" && \
+            docker run -d --name ${repo}_${branch}_a -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" ${repo}:${branch} && \
             docker rm -f ${repo}_${branch}_b || true
-            exit 0
           fi
