@@ -48,4 +48,3 @@ jobs:
                 ${repo}:${branch} && \
             docker rm -f ${repo}_${branch}_b || true
           fi
-#teste
