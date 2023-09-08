@@ -1,7 +1,7 @@
 name: aws-docker
 on:
   push:
-    branches: '**'
+    branches: 'dev, hml'
 
 jobs:
   PublicaNaAWS:
@@ -23,6 +23,10 @@ jobs:
           echo $branch | tee branch.txt
           echo $repo | tee repo.txt
       
+      - name: Ativa debug
+        id: debug
+        run: sed -i 's/DEBUG = False/DEBUG = True/g' app/DjangoApi/DjangoApi/settings.py
+
       - name: Atualiza imagem do app
         id: change_image
         run: |
@@ -35,16 +39,16 @@ jobs:
             docker run -d \
                 --name ${repo}_${branch}_b \
                 --network nginx-proxy \
-                -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" \
-                -e "LETSENCRYPT_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" \
+                -e "VIRTUAL_HOST=${branch}.${repo}.dispensainteligente.com" \
+                -e "LETSENCRYPT_HOST=${branch}.${repo}.dispensainteligente.com" \
                 ${repo}:${branch} && \
             docker rm -f ${repo}_${branch}_a
           else
             docker run -d \
                 --name ${repo}_${branch}_a \
                 --network nginx-proxy \
-                -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" \
-                -e "LETSENCRYPT_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" \
+                -e "VIRTUAL_HOST=${branch}.${repo}.dispensainteligente.com" \
+                -e "LETSENCRYPT_HOST=${branch}.${repo}.dispensainteligente.com" \
                 ${repo}:${branch} && \
             docker rm -f ${repo}_${branch}_b || true
           fi
