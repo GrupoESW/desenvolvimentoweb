@@ -32,10 +32,20 @@ jobs:
           docker build -t ${repo}:${branch} .
       
           if docker inspect "${repo}_${branch}_a" >/dev/null 2>&1; then
-            docker run -d --name ${repo}_${branch}_b --network nginx-proxy -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" ${repo}:${branch} && \
+            docker run -d \
+                --name ${repo}_${branch}_b \
+                --network nginx-proxy \
+                -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" \
+                -e "LETSENCRYPT_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" \
+                ${repo}:${branch} && \
             docker rm -f ${repo}_${branch}_a
           else
-            docker run -d --name ${repo}_${branch}_a --network nginx-proxy -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" ${repo}:${branch} && \
+            docker run -d \
+                --name ${repo}_${branch}_a \
+                --network nginx-proxy \
+                -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" \
+                -e "LETSENCRYPT_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" \
+                ${repo}:${branch} && \
             docker rm -f ${repo}_${branch}_b || true
           fi
 #teste
