@@ -3,7 +3,7 @@ on:
     delete: 
 jobs: 
     build: 
-        runs-on: trabalessandra 
+        runs-on: estoqueinteligente,dev 
         steps: 
             - name: Checkout 
               uses: actions/checkout@v2 
