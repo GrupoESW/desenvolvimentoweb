@@ -38,3 +38,4 @@ jobs:
             docker run -d --name ${repo}_${branch}_a -e "VIRTUAL_HOST=${branch}.${repo}.estoqueinteligente.projetonow.net" ${repo}:${branch} && \
             docker rm -f ${repo}_${branch}_b || true
           fi
+#teste
