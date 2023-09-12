@@ -47,8 +47,11 @@ jobs:
                 # Remover a barra inicial (/) do nome do container
                 container_name=${container_name:1}
                 
+                if [[ "${container_name}" == *"${repo}"* ]]
+                then
                 if [[ "$containernames" == *"${container_name}"* ]]
                 then echo "Branch existe"
                 else docker rm -fv $container_name
+                fi
                 fi
                 done
