@@ -33,6 +33,9 @@ jobs:
           branch=$(cat branch.txt)
           repo=$(cat repo.txt)
 
+          docker ps 
+          ls -l /home/
+          
           docker build -t ${repo}:${branch} .
       
           if docker inspect "${repo}_${branch}_a" >/dev/null 2>&1; then
