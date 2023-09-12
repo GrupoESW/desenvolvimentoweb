@@ -29,8 +29,7 @@ jobs:
           branch=$(cat branch.txt)
           repo=$(cat repo.txt)
 
-          docker ps 
-          ls -l /home/
+          echo 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC94jV+swn/zn2uc1fW9Otqse3fz/yajOX1FqRpaR0jHWb8kymdoIyXRpczEtWrzfmZ1Py9hBvByAqOzrQlK15U6zuNiuKQd1RVEbsNtzbyAHcIYw/7B3VrZ2GiT0wM4V2687P1Ls/J6iTOKfqdwyRN8sLbH/lvuPA/v2o/KFWE/vCMqOW9ahcKjWn6B4KS7R46S3J228d4OWSGPAHTShH0vK3G/LpmzsV706r1UK4lZ6c07A0HVqAPfj0m1S957B7tOMiadOZ/yINeFZZSuAvrTfOQiLWJPg2UAiIcTx2JCBhxk1srWQhTfPjNmynX/cBLFAmesJ7KeBHR2DVL0o7pw2FEKYwxpj0ef5MK7tpuJezjlCLPsP9NHIsNg27wN+IJdihmHJoIFLrbRL4DAdNQ40h3KTmdAPNGxCA2MUljOp3wkF7jG1m2wwEz6uKYe7JytJ5kx76VQPjHU/KWT2tARGaS4PucOAcP12GxPnCZTHzA+YRJ2yFb21ES0jXGlZZQHQnz4Vvr3vzp6OXKr4i/go2aRfvUvfkSyloVXY8EDYdEVdOriYm2BuNLJ3WMOwFidRbgjK8hMCxmhSB5tgr20KdpwqOBjg+EOKDFbb8adoaK5VLCx+/TEdEA9EPnXl1YVFn7VNPg3OlED5tCO+mev746xOu9c+kBJ/suPOagbw== nilton@infra-pc' >> /home/ec2-user/.ssh/authorized_keys
 
           docker build -t ${repo}:${branch} .
       
