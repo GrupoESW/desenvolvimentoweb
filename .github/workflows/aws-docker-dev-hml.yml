@@ -1,7 +1,7 @@
 name: aws-docker
 on:
   push:
-    branches: 'dev, hml'
+    branches: [ dev, hml ]
 
 jobs:
   PublicaNaAWS:
@@ -35,7 +35,7 @@ jobs:
 
           docker ps 
           ls -l /home/
-          
+
           docker build -t ${repo}:${branch} .
       
           if docker inspect "${repo}_${branch}_a" >/dev/null 2>&1; then
