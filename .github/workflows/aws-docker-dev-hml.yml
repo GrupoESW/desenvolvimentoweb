@@ -2,7 +2,7 @@ name: aws-docker-devhml
 on:
   push:
     branches-ignore: main
-
+    
 jobs:
   PublicaNaAWS:
     runs-on: [ estoqueinteligente, dev ]
