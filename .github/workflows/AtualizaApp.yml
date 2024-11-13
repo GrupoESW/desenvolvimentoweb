@@ -1,0 +1,43 @@
+name: Atualiza container
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+
+  workflow_dispatch:
+    
+env:
+  DOMINIO: "dispensa.technsolutions.com.br"
+
+jobs:
+  build-e-run:
+    runs-on: estoqueinteligente-webapp-contabo
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Cria Variáveis
+      id: create_variables
+      continue-on-error: true
+      run: |
+          branch=${{ github.ref }}
+          branch=${branch/refs\/heads\//}
+          repo=${{ github.repository }}
+          repo=${repo/*\//}
+          repo=${repo,,} # converte o nome do repositório para minúsculo
+
+          echo $branch | tee branch.txt
+          echo $repo | tee repo.txt
+            
+    - name: Seta url da aplicação
+      run: |
+          branch=$(cat branch.txt)
+          repo=$(cat repo.txt)
+          
+          dominio=${{ env.DOMINIO }}
+          sed -ri "s|HOSTNAME|${dominio}|" compose.yaml
+          sed -i "s/DOMINIO/${branch}.${repo/*-/}.${{ env.DOMINIO }}/g" compose.yaml
+          echo "Aplicação será exposta em: ${branch}.${repo/*-/}.${{ env.DOMINIO }}"
+  
+    - name: Inicia novo container
+      run: docker compose build --no-cache && docker compose up -d --force-recreate
