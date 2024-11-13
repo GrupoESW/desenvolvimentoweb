@@ -12,7 +12,7 @@ env:
 
 jobs:
   build-e-run:
-    runs-on: estoqueinteligente-webapp-contabo
+    runs-on: estoqueinteligente-site
     steps:
     - uses: actions/checkout@v3
 
